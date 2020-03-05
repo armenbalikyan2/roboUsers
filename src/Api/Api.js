@@ -7,7 +7,7 @@ export const url = "https://robohash.org/";
 
 
 //getter function
-export const getUsers = () => {
+export const getUsers = ()=>{
     return axios.get(usersApi);
 };
 

@@ -2,13 +2,13 @@ import React, {useEffect,useState,} from "react";
 import {connect} from "react-redux";
 import CardList from "../Components/CardList";
 import SearchBox from "../Components/Search/Search";
-import {getUsersRequest} from '../Thunks/user.function';
+import {getUsersRequest} from '../Service/getRequest';
 
 
-const Main = ({users,getUsersRequest,}) => {
+const Main = ({users,getUsersRequest})=>{
     const [search, setSearch] = useState("")
 
-    useEffect(() => {
+    useEffect(()=>{
         getUsersRequest();
     }, []);
 
@@ -17,7 +17,7 @@ const Main = ({users,getUsersRequest,}) => {
             if (search === users[i]) {
                 users = [`${search}`];
                 console.log(users);
-            }else{
+            } else {
                 users.splice(i,1);
                 i--;
             }
@@ -26,8 +26,8 @@ const Main = ({users,getUsersRequest,}) => {
     }
     return ( 
         <div>
-        <SearchBox onSearch = {setSearch} /> 
-        <CardList users = {users}/> 
+        <SearchBox onSearch={setSearch} /> 
+        <CardList users={users}/> 
         </div>
     )
 }

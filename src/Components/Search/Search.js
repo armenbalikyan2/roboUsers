@@ -1,19 +1,18 @@
 import React from "react"
 import { Input } from 'antd';
-import 'antd/dist/antd.css';
 import "./search.css"
 
 
-const SearchBox = (props) => {
+const SearchBox = (props)=>{
     const { Search } = Input;
     return(
-        <div className = "search-container">
+        <div classNam="search-container">
         <Search
-            className = "search-box"
-            placeholder = "input search text"
-            enterButton = "Search"
+            className="search-box"
+            placeholder="input search text"
+            enterButton="Search"
             size="large"
-            onSearch = {props.onSearch}
+            onSearch={props.onSearch}
         />
       </div>
     )
