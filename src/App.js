@@ -1,22 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Provider } from 'react-redux';
+import store from './Store';
 import './App.css';
-import SearchBox from './components/Search';
-import { Card } from 'antd';
-import User from './components/Card';
-import Cards from './components/Card';
+import Main from './Main/index';
 
 function App() {
   return (
-    <div className="App">
+    <Provider store={store}>
+      <div className="App">
       <header>
         <h1>RoboUsers</h1>
       </header>
       <div className="container">
-        <SearchBox/>
-        <Cards/>
+          <Main/>
       </div>
     </div>
+    </Provider>
   );
 }
 

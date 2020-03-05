@@ -2,10 +2,10 @@ import React from 'react';
 import { Card, Col, Row } from 'antd';
 import { url } from '../../Api/Api';
 
-const Cards =(props)=>{
+const Cards = (props) => {
     const { Meta } = Card;
     return(
-    <div className="card-wrapper">
+    <div className = "card-wrapper">
         <Card 
             hoverable  
             style = 
@@ -14,9 +14,9 @@ const Cards =(props)=>{
                 backgroundColor: "rgb(8, 203, 238)",
                 margin: "10px"
             }}
-            cover = {<img alt={props.id} src={`${url}/${props.src}`} />}
+            cover = {<img alt = {props.alt} src = {`${url}/${props.src}`} />}
             bordered = {false}>
-            <Meta title = {props.username} description = {props.robot} />
+            <Meta title = {props.title}/>
         </Card>
     </div>
     )
