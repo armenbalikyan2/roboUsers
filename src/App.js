@@ -1,8 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import store from './Store';
+import store from './store';
 import './App.css';
-import Main from './Main/index';
+import Main from './main/index';
 
 function App() {
   return (

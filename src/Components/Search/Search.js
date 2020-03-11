@@ -6,7 +6,7 @@ import "./search.css"
 const SearchBox = (props)=>{
     const { Search } = Input;
     return(
-        <div classNam="search-container">
+        <div className="search-container">
         <Search
             className="search-box"
             placeholder="input search text"

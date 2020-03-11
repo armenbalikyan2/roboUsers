@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from 'antd';
-import { url } from '../../Api/Api';
+import { url } from '../../api/Api';
 import "./card.css"
 
 const Cards = (props) => {

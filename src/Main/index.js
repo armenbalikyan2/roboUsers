@@ -1,15 +1,18 @@
 import React, {useEffect,useState,} from "react";
 import {connect} from "react-redux";
-import CardList from "../Components/CardList";
-import SearchBox from "../Components/Search/Search";
-import {getUsersRequest} from '../Service/getRequest';
+import CardList from "../components/cardList";
+import SearchBox from "../components/search/Search";
+import { Spin } from 'antd';
+import { getUsersLoading } from "../actions/user.actions";
+import { userNames } from "../selectors/filterUsers";
 
 
-const Main = ({users,getUsersRequest})=>{
+
+const Main = ({ users, getUsersLoading, loading })=>{
     const [search, setSearch] = useState("")
 
     useEffect(()=>{
-        getUsersRequest();
+        getUsersLoading();
     }, []);
 
     if (search !== "") {
@@ -24,25 +27,23 @@ const Main = ({users,getUsersRequest})=>{
         }
         console.log(search);        
     }
-    return ( 
-        <div>
-        <SearchBox onSearch={setSearch} /> 
-        <CardList users={users}/> 
-        </div>
+    return (
+        <Spin spinning={loading}>
+            <div>
+                <SearchBox onSearch={setSearch} /> 
+                <CardList users={users}/> 
+            </div>
+        </Spin>
     )
 }
 
+const mapStateToProps = (state) => ({
+    users: userNames(state),
+    loading: state.users.gettingUser
+});
 
-const mapStateToProps = (state) => {
-    return {
-        users: state.users.userData,
-    }
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        getUsersRequest: () => dispatch(getUsersRequest()),
-    };
-};
+const mapDispatchToProps = (dispatch) => ({
+    getUsersLoading: () => dispatch(getUsersLoading),
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);

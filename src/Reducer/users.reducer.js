@@ -1,4 +1,4 @@
-import { GET_USERS_LOADING, GET_USERS_SUCCESS, GET_USERS_FAILURE } from '../Action/user.actions';
+import { GET_USERS_LOADING, GET_USERS_SUCCESS, GET_USERS_FAILURE } from '../actions/user.actions';
 
 const initialState = {
     gettingUser: false,
